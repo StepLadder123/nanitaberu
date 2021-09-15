@@ -6,6 +6,26 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :family,             null: false, default: ""
+      t.string :owner,              null: false, default: ""
+      t.string :member1,            null: false, default: ""
+      t.string :email1,             null: false, default: ""
+      t.string :member2,            null: false, default: ""
+      t.string :email2,             null: false, default: ""
+      t.string :member3,            null: false, default: ""
+      t.string :email3,             null: false, default: ""
+      t.string :member4,            null: false, default: ""
+      t.string :email4,             null: false, default: ""
+      t.string :member5,            null: false, default: ""
+      t.string :email5,             null: false, default: ""
+      t.string :member6,            null: false, default: ""
+      t.string :email6,             null: false, default: ""
+      t.string :member7,            null: false, default: ""
+      t.string :email7,             null: false, default: ""
+      t.string :member8,            null: false, default: ""
+      t.string :email8,             null: false, default: ""
+      t.string :member9,            null: false, default: ""
+      t.string :email9,             null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token
