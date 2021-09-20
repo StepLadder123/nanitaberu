@@ -15,26 +15,7 @@ ActiveRecord::Schema.define(version: 2021_09_15_135223) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "family", default: "", null: false
-    t.string "owner", default: "", null: false
-    t.string "member1", default: "", null: false
-    t.string "email1", default: "", null: false
-    t.string "member2", default: "", null: false
-    t.string "email2", default: "", null: false
-    t.string "member3", default: "", null: false
-    t.string "email3", default: "", null: false
-    t.string "member4", default: "", null: false
-    t.string "email4", default: "", null: false
-    t.string "member5", default: "", null: false
-    t.string "email5", default: "", null: false
-    t.string "member6", default: "", null: false
-    t.string "email6", default: "", null: false
-    t.string "member7", default: "", null: false
-    t.string "email7", default: "", null: false
-    t.string "member8", default: "", null: false
-    t.string "email8", default: "", null: false
-    t.string "member9", default: "", null: false
-    t.string "email9", default: "", null: false
+    t.string "name", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
