@@ -6,18 +6,11 @@
   <div class="contents">
     <%= form_with model: @user, url: user_registration_path, id: 'new-user', class: 'new-user', local: true do |f| %>
       <div class="form-area">
-        <div class="form-group form-group-family">
-          <label class="form-text">家族名（グループ名）</label>
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_field :family, class:"input-area input-area-family", id:"famiry", placeholder:"例) 鈴木家", maxlength:"20", autofocus: true %>
-      </div>
-      <div class="form-area">
         <div class="form-group form-group-owner">
-          <label class="form-text">オーナー名</label>
+          <label class="form-text">ユーザー名</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :owner, class:"input-area input-area-owner", id:"owner", placeholder:"例) ママ、パパ" %>
+        <%= f.text_field :name, class:"input-area input-area-owner", id:"name", placeholder:"例) ママ、パパ" %>
       </div>
       <div class="form-area">
         <div class="form-group form-group-email">
@@ -40,157 +33,12 @@
         </div>
         <%= f.password_field :password_confirmation, class:"input-area input-area-password", id:"password-confirmation", placeholder:"同じパスワードを入力してください" %>
       </div>
-      <div class="form-area">
-        <div class="form-group form-group-member">
-          <span class="form-text">メンバー1</span>
-          <span class="dispensable">任意</span>
-          <span class="caution">※オーナーの登録は不要</span>
-        </div>
-        <div class="form-sub-group">
-          <div class="form-sub-group-member">
-            <label class="form-text">氏名</label>
-          </div>
-          <%= f.text_field :member1, class:"input-area input-area-member", id:"member1", placeholder:"例) パパ、ママ" %>
-          <div class="form-sub-group-email">
-            <label class="form-text">メールアドレス</label>
-          </div>
-          <%= f.email_field :email1, class:"input-area input-area-email", id:"email1", placeholder:"PC・携帯どちらでも可" %>
-        </div>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-member">
-          <span class="form-text">メンバー2</span>
-          <span class="dispensable">任意</span>
-        </div>
-        <div class="form-sub-group">
-          <div class="form-sub-group-member">
-            <label class="form-text">氏名</label>
-          </div>
-          <%= f.text_field :member2, class:"input-area input-area-member", id:"member2", placeholder:"例) 一郎" %>
-          <div class="form-sub-group-email">
-            <label class="form-text">メールアドレス</label>
-          </div>
-          <%= f.email_field :email2, class:"input-area input-area-email", id:"email2", placeholder:"PC・携帯どちらでも可" %>
-        </div>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-member">
-          <span class="form-text">メンバー3</span>
-          <span class="dispensable">任意</span>
-        </div>
-        <div class="form-sub-group">
-          <div class="form-sub-group-member">
-            <label class="form-text">氏名</label>
-          </div>
-          <%= f.text_field :member3, class:"input-area input-area-member", id:"member3", placeholder:"例) 花子" %>
-          <div class="form-sub-group-email">
-            <label class="form-text">メールアドレス</label>
-          </div>
-          <%= f.email_field :email3, class:"input-area input-area-email", id:"email3", placeholder:"PC・携帯どちらでも可" %>
-        </div>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-member">
-          <span class="form-text">メンバー4</span>
-          <span class="dispensable">任意</span>
-        </div>
-        <div class="form-sub-group">
-          <div class="form-sub-group-member">
-            <label class="form-text">氏名</label>
-          </div>
-          <%= f.text_field :member4, class:"input-area input-area-member", id:"member4", placeholder:"例) 二郎" %>
-          <div class="form-sub-group-email">
-            <label class="form-text">メールアドレス</label>
-          </div>
-          <%= f.email_field :email4, class:"input-area input-area-email", id:"email4", placeholder:"PC・携帯どちらでも可" %>
-        </div>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-member">
-          <span class="form-text">メンバー5</span>
-          <span class="dispensable">任意</span>
-        </div>
-        <div class="form-sub-group">
-          <div class="form-sub-group-member">
-            <label class="form-text">氏名</label>
-          </div>
-          <%= f.text_field :member5, class:"input-area input-area-member", id:"member5", placeholder:"例) 優子" %>
-          <div class="form-sub-group-email">
-            <label class="form-text">メールアドレス</label>
-          </div>
-          <%= f.email_field :email5, class:"input-area input-area-email", id:"email5", placeholder:"PC・携帯どちらでも可" %>
-        </div>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-member">
-          <span class="form-text">メンバー6</span>
-          <span class="dispensable">任意</span>
-        </div>
-        <div class="form-sub-group">
-          <div class="form-sub-group-member">
-            <label class="form-text">氏名</label>
-          </div>
-          <%= f.text_field :member6, class:"input-area input-area-member", id:"member6", placeholder:"例) 三郎" %>
-          <div class="form-sub-group-email">
-            <label class="form-text">メールアドレス</label>
-          </div>
-          <%= f.email_field :email6, class:"input-area input-area-email", id:"email6", placeholder:"PC・携帯どちらでも可" %>
-        </div>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-member">
-          <span class="form-text">メンバー7</span>
-          <span class="dispensable">任意</span>
-        </div>
-        <div class="form-sub-group">
-          <div class="form-sub-group-member">
-            <label class="form-text">氏名</label>
-          </div>
-          <%= f.text_field :member7, class:"input-area input-area-member", id:"member7", placeholder:"例) 愛子" %>
-          <div class="form-sub-group-email">
-            <label class="form-text">メールアドレス</label>
-          </div>
-          <%= f.email_field :email7, class:"input-area input-area-email", id:"email7", placeholder:"PC・携帯どちらでも可" %>
-        </div>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-member">
-          <span class="form-text">メンバー8</span>
-          <span class="dispensable">任意</span>
-        </div>
-        <div class="form-sub-group">
-          <div class="form-sub-group-member">
-            <label class="form-text">氏名</label>
-          </div>
-          <%= f.text_field :member8, class:"input-area input-area-member", id:"member8", placeholder:"例) 四郎" %>
-          <div class="form-sub-group-email">
-            <label class="form-text">メールアドレス</label>
-          </div>
-          <%= f.email_field :email8, class:"input-area input-area-email", id:"email8", placeholder:"PC・携帯どちらでも可" %>
-        </div>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-member">
-          <span class="form-text">メンバー9</span>
-          <span class="dispensable">任意</span>
-        </div>
-        <div class="form-sub-group">
-          <div class="form-sub-group-member">
-            <label class="form-text">氏名</label>
-          </div>
-          <%= f.text_field :member9, class:"input-area input-area-member", id:"member9", placeholder:"例) 恵子" %>
-          <div class="form-sub-group-email">
-            <label class="form-text">メールアドレス</label>
-          </div>
-          <%= f.email_field :email9, class:"input-area input-area-email", id:"email9", placeholder:"PC・携帯どちらでも可" %>
-        </div>
-      </div>
       <div class='transition-btn'>
         <div class="btn-content">
           <%= f.submit "会員登録", class:"next-btn" %>
         </div>
         <div class="btn-content">
-          <%= link_to 'もどる', "#", class:"back-btn" %>
+          <%= link_to 'もどる', root_path, class:"back-btn" %>
         </div>
       </div>
     <% end %>

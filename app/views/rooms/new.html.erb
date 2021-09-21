@@ -1,0 +1,64 @@
+<div class="header">
+  <div class="header-left">
+    <h1 class="logo">何たベル？</h1>
+  </div>
+  <div class="header-right">
+    <% if user_signed_in? %>
+      <%= link_to current_user.name, "#", class: "link user-name" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "link logout" %>
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path, class: "link login" %>
+      <%= link_to '新規登録', new_user_registration_path, class: "link sign-up" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="top-page">
+  <div class="page-title">
+    <h1 class="title-text">ルーム作成</h1>
+  </div>
+  <div class="create-room">
+    <div class="sub-title">
+      新しくルームを作成する場合は下記を入力し、作成ボタンをクリック。
+    </div>
+    <%= form_with model: @room, local: true do |f| %>
+      <div class="create-room-form">
+        <div class="create-room-form-left">
+          <%= f.label :ルーム名, class: "create-room-form-label" %>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="create-room-form-right">
+          <%= f.text_field :room_name, class: "create-room-name", placeholder: "例）鈴木家" %>
+        </div>
+      </div>
+      <div class="create-room-form">
+        <div class="create-room-form-left">
+          <%= f.label :検索用ルームコード, class: "create-room-form-label" %>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="create-room-form-right">
+          <%= f.text_field :key, class: "create-room-key", placeholder: "8文字以上の半角英数字" %>
+        </div>
+      </div>
+      <div class="create-room-form">
+        <div class="create-room-form-left">
+          <%= f.label :ルール, class: "create-room-form-label" %>
+        </div>
+        <div class="create-room-form-right">
+          <%= f.text_field :rule, class: "create-room-rule", placeholder: "ルーム内の約束ごとを入力してください" %>
+        </div>
+      </div>
+      <div class='transition-btn'>
+        <div class="btn-content">
+          <%= f.submit "作成", class:"next-btn" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="search-room">
+    <div class="sub-title">
+      作成済みルームに参加する場合は、ルームオーナーに確認した検査用ルームコードを入力し、検索ボタンをクリック。
+    </div>
+    作成済みのルームを検索する機能を実装予定
+  </div>
+</div>
