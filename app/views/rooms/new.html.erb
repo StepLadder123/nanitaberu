@@ -1,26 +1,12 @@
-<div class="header">
-  <div class="header-left">
-    <h1 class="logo">何たベル？</h1>
-  </div>
-  <div class="header-right">
-    <% if user_signed_in? %>
-      <%= link_to current_user.name, "#", class: "link user-name" %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "link logout" %>
-    <% else %>
-      <%= link_to 'ログイン', new_user_session_path, class: "link login" %>
-      <%= link_to '新規登録', new_user_registration_path, class: "link sign-up" %>
-    <% end %>
-  </div>
-</div>
-
-<div class="top-page">
+<div class="room-new-page">
   <div class="page-title">
-    <h1 class="title-text">ルーム作成</h1>
+    <h1 class="title-text">ルーム新規作成</h1>
+  </div>
+  <div class="explanation-link">
+    作成済みルームに参加する場合は<%= link_to 'こちら', search_rooms_path %>
   </div>
   <div class="create-room">
-    <div class="sub-title">
-      新しくルームを作成する場合は下記を入力し、作成ボタンをクリック。
-    </div>
+    <span class="explanation">新しくルームを作成する場合は、下記を入力して作成ボタンをクリック。</span>
     <%= form_with model: @room, local: true do |f| %>
       <div class="create-room-form">
         <div class="create-room-form-left">
@@ -54,11 +40,5 @@
         </div>
       </div>
     <% end %>
-  </div>
-  <div class="search-room">
-    <div class="sub-title">
-      作成済みルームに参加する場合は、ルームオーナーに確認した検査用ルームコードを入力し、検索ボタンをクリック。
-    </div>
-    作成済みのルームを検索する機能を実装予定
   </div>
 </div>
