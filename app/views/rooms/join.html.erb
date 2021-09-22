@@ -1,0 +1,34 @@
+<div class="room-search-page">
+  <div class="page-title">
+    <h1 class="title-text">ルーム検索</h2>
+  </div>
+  <div class="contents">
+    <% if @results.empty? %>
+      検索されたルームコードに合致するルーム登録はありません
+    <div class="transition-btn">
+    <% else %>
+      <% @results.each do |result| %>
+        <table class="detail-table">  
+          <tbody>
+            <tr>
+              <th class="detail-item">ルーム</th>
+              <td class="detail-value"><%= result.room_name %></td>
+            </tr>
+            <tr>
+              <th class="detail-item">オーナー</th>
+              <td class="detail-value"><%= result.user.name %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    <div class="transition-btn">
+      <div class="btn-content">
+        <%= link_to '申請する', "#", class:"next-btn" %>
+      </div>
+    <% end %>
+      <div class="btn-content">
+        <%= link_to '検索画面にもどる', search_rooms_path, class:"back-btn" %>
+      </div>
+    </div>
+  </div>
+</div>

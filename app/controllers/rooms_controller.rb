@@ -1,14 +1,16 @@
 class RoomsController < ApplicationController
+  before_action :search_room, only: [:search, :join]
+
   def index
     if user_signed_in? && current_user.room_key == ""
-      redirect_to new_room_path
+      redirect_to search_rooms_path
     end
   end
 
   def new
     @room = Room.new
   end
-
+  
   def create
     @room = Room.new(room_params)
     if @room.save
@@ -20,10 +22,22 @@ class RoomsController < ApplicationController
       render :new
     end
   end
+  
+  def search
+    @rooms = Room.includes(:room)
+  end
+  
+  def join
+    @results = @r.result
+  end
 
   private
 
   def room_params
     params.require(:room).permit(:room_name, :key, :rule).merge(user_id: current_user.id)
+  end
+
+  def search_room
+    @r = Room.ransack(params[:q])
   end
 end

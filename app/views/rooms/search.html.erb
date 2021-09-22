@@ -1,0 +1,26 @@
+<div class="room-search-page">
+  <div class="page-title">
+    <h1 class="title-text">ルーム検索</h2>
+  </div>
+  <div class="explanation-link">
+    新規ルームを作成する場合は<%= link_to 'こちら', new_room_path %>
+  </div>
+  <div class="search-room">
+    <span class="explanation">作成済みルームに参加する場合は、ルームオーナーに確認した検索用ルームコードを入力し、検索ボタンをクリック。</span>
+    <%= search_form_for @r, url: join_rooms_path do |f| %>
+      <div class="create-room-form">
+        <div class="create-room-form-left">
+          <%= f.label :key_eq, "検索用ルームコード（完全一致）" %>
+        </div>
+        <div class="create-room-form-right">
+          <%= f.text_field :key_eq, required: true, class: "search-room-key", placeholder: "8文字以上の半角英数字" %>
+        </div>
+      </div>
+      <div class='transition-btn'>
+        <div class="btn-content">
+          <%= f.submit "検索", class:"next-btn" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
