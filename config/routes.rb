@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'join'
+      get 'wait'
     end
   end
 end

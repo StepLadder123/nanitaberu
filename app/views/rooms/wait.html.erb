@@ -1,0 +1,12 @@
+<div class="room-wait-page">
+  <% @room.each do |room| %>
+    <div>
+      <%= "ただいま#{room.room_name}のルームに入室申請中です。" %>
+    </div>
+  <% end %>
+  <div class="transition-btn">
+    <div class="btn-content">
+      <%= link_to '入室申請を取り消す', "#", class:"delete-btn" %>
+    </div>
+  </div>
+</div>

@@ -3,11 +3,11 @@
     <h1 class="title-text">ルーム検索</h2>
   </div>
   <div class="contents">
-    <% if @results.empty? %>
+    <% if @result.empty? %>
       検索されたルームコードに合致するルーム登録はありません
     <div class="transition-btn">
     <% else %>
-      <% @results.each do |result| %>
+      <% @result.each do |result| %>
         <table class="detail-table">  
           <tbody>
             <tr>
@@ -21,10 +21,20 @@
           </tbody>
         </table>
       <% end %>
-    <div class="transition-btn">
-      <div class="btn-content">
-        <%= link_to '申請する', "#", class:"next-btn" %>
-      </div>
+      <%= search_form_for @r, url: wait_rooms_path do |f| %>
+        <div class="create-room-form hidden">
+          <div class="create-room-form-left">
+            <%= f.label :key_eq, "検索用ルームコード（完全一致）" %>
+          </div>
+          <div class="create-room-form-right">
+            <%= f.text_field :key_eq, required: true, class: "search-room-key", placeholder: "8文字以上の半角英数字" %>
+          </div>
+        </div>
+        <div class='transition-btn'>
+          <div class="btn-content">
+            <%= f.submit "入室を申請する", class:"next-btn" %>
+          </div>
+      <% end %>
     <% end %>
       <div class="btn-content">
         <%= link_to '検索画面にもどる', search_rooms_path, class:"back-btn" %>
