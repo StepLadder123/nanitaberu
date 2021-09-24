@@ -2,8 +2,12 @@ class RoomsController < ApplicationController
   before_action :search_room, only: [:search, :join]
 
   def index
-    if user_signed_in? && current_user.room_key == ""
-      redirect_to search_rooms_path
+    if user_signed_in?
+      if current_user.waiting_room_key != nil
+        redirect_to wait_rooms_path
+      elsif current_user.room_key == ""
+        redirect_to search_rooms_path
+      end
     end
   end
 
@@ -28,9 +32,24 @@ class RoomsController < ApplicationController
   end
   
   def join
-    @results = @r.result
+    @result = @r.result
   end
-
+  
+  def wait
+    if current_user.waiting_room_key == nil
+      search_room
+      @room = @r.result
+      @room.each do |room|
+        current_user.waiting_room_key = room.id
+      end
+      current_user.save
+    else
+      @room = [Room.find(current_user.waiting_room_key)]
+      # current_user.waiting_room_key = @result
+    end
+    # @result = Room.find(current_user.wait_room_key)
+  end
+  
   private
 
   def room_params
