@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'join'
       get 'wait'
+      get 'cancel'
     end
   end
 end
