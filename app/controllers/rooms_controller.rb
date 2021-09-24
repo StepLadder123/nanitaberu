@@ -45,11 +45,15 @@ class RoomsController < ApplicationController
       current_user.save
     else
       @room = [Room.find(current_user.waiting_room_key)]
-      # current_user.waiting_room_key = @result
     end
-    # @result = Room.find(current_user.wait_room_key)
   end
   
+  def cancel
+    current_user.waiting_room_key = ""
+    current_user.save
+    redirect_to root_path
+  end
+
   private
 
   def room_params
