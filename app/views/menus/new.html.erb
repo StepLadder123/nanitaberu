@@ -1,0 +1,44 @@
+<div class="menu-new-page">
+  <div class="page-title">
+    <h1 class="title-text">メニュー新規作成</h1>
+  </div>
+  <div class="create-menu">
+    <%= form_with model: [@room, @menu], url: room_menus_path, local: true do |f| %>
+      <div class="create-menu-form">
+        <div class="create-menu-form-left">
+          <%= f.label :料理画像, class: "create-menu-form-label" %>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="create-menu-form-upload">
+          <p>クリックしてファイルをアップロード</p>
+          <%= f.file_field :image, id:"create-menu-image" %>
+        </div>
+      </div>
+      <div class="create-menu-form">
+        <div class="create-menu-form-left">
+          <%= f.label :料理名, class: "create-menu-form-label" %>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="create-menu-form-right">
+          <%= f.text_field :cook_name, class: "create-menu-name", placeholder: "例）カレー" %>
+        </div>
+      </div>
+      <div class="create-menu-form">
+        <div class="create-menu-form-left">
+          <%= f.label :メモ, class: "create-menu-form-label" %>
+        </div>
+        <div class="create-menu-form-right">
+          <%= f.text_field :memo, class: "create-menu-name", placeholder: "メニューに補足があれば入力" %>
+        </div>
+      </div>
+      <div class='transition-btn'>
+        <div class="btn-content">
+          <%= f.submit "作成", class:"next-btn" %>
+        </div>
+        <div class="btn-content">
+          <%= link_to 'ルームにもどる', root_path, class:"back-btn" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
