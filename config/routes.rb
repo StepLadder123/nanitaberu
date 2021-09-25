@@ -11,5 +11,6 @@ Rails.application.routes.draw do
       get 'approve/:id', to: 'rooms#approve', as: :approve
       get 'reject/:id', to: 'rooms#reject', as: :reject
     end
+    resources :menus, only: [:new, :create]
   end
 end

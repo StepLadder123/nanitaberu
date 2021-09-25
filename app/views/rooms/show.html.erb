@@ -6,6 +6,7 @@
   <div class="contents">
     ログインしている状態でルーム参加済みのトップページです。<br>
     今週の献立、夕食有無の連絡機能を作成する予定です。<br>
+    <%= link_to 'メニューを登録する', new_room_menu_path(@room.id), class:"menu-new-btn" %>
     <% if @room.user_id == current_user.id %>
       オーナーのため、承認機能を付与します。<br>
       <% @applies.each do |apply_user| %>
