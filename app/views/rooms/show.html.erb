@@ -16,5 +16,38 @@
         <br>
       <% end %>
     <% end %>
+    <%= form_with model: [@room, @schedule], url: room_schedules_path(:id), id: 'new_score', class: 'new_score', local: true do |f| %>
+      <div>
+        <div>
+          <%= f.label :日付, class: "create-menu-form-label" %>
+          <span class="indispensable">必須</span>
+        </div>
+        <div>
+          <%= f.date_field :date, class:"input-default", id:"date", max: Time.now, value: Time.now.strftime("%Y-%m-%d") %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= f.label :メニュー, class: "create-menu-form-label" %>
+          <span class="indispensable">必須</span>
+        </div>
+        <div>
+          <%= f.collection_select(:menu_id, Menu.where(room_id: @room.id).order(cook_name: "ASC"), :id, :cook_name, {prompt: "選択してください"}, {class:"select-box", id:"menu"}) %>
+        </div>
+      </div>
+      <div class='transition-btn'>
+        <div class="btn-content">
+          <%= f.submit "献立登録する" ,class:"next-btn" %><br>
+        </div>
+      </div>
+    <% end %>
+    <%= calendar events: @schedules do |date, schedules| %>
+      <%= date.day %>
+      <% schedules.each do |schedule| %>
+        <div>
+          <%= Menu.find(schedule.menu_id).cook_name %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
