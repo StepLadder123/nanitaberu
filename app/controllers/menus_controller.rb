@@ -5,7 +5,6 @@ class MenusController < ApplicationController
 
   def create
     @menu = Menu.new(menu_params)
-    binding.pry
     if @menu.save
       redirect_to root_path
     else

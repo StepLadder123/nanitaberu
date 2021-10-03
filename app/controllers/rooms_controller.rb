@@ -33,6 +33,8 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(current_user.room_key)
     @applies = User.where(waiting_room_key: @room.id)
+    @schedule = Schedule.new
+    @schedules = Schedule.where(room_id: @room.id)
   end
 
   def search
