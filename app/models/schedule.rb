@@ -5,4 +5,8 @@ class Schedule < ApplicationRecord
     validates :menu_id
     validates :room_id
   end
+
+  def start_time
+    self.date
+  end
 end
