@@ -1,0 +1,21 @@
+<div class="menu-show-page">
+  <div class="page-title">
+    <h1 class="title-text">メニュー</h1>
+  </div>
+  <div class="show-menu">
+    <div>
+      <%= image_tag @menu.image %>
+    </div>
+    <div>
+      <%= @menu.cook_name %>
+    </div>
+    <div>
+      <%= @menu.memo %>
+    </div>
+    <div class='transition-btn'>
+      <div class="btn-content">
+        <%= link_to 'ルームにもどる', root_path, class:"back-btn" %>
+      </div>
+    </div>
+  </div>
+</div>
