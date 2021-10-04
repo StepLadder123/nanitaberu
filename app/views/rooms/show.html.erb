@@ -45,7 +45,7 @@
       <%= date.day %>
       <% schedules.each do |schedule| %>
         <div>
-          <%= Menu.find(schedule.menu_id).cook_name %>
+          <%= link_to Menu.find(schedule.menu_id).cook_name, room_menu_path(schedule.menu_id) %>
         </div>
       <% end %>
     <% end %>
