@@ -12,6 +12,6 @@ Rails.application.routes.draw do
       get 'reject/:id', to: 'rooms#reject', as: :reject
     end
     resources :menus, only: [:new, :create, :show]
-    resources :schedules, only: [:new, :create]
+    resources :schedules, only: [:new, :create, :destroy]
   end
 end

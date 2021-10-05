@@ -46,6 +46,7 @@
       <% schedules.each do |schedule| %>
         <div>
           <%= link_to Menu.find(schedule.menu_id).cook_name, room_menu_path(schedule.menu_id) %>
+          <%= link_to "[削除]", room_schedule_path(schedule.id), method: :delete %>
         </div>
       <% end %>
     <% end %>
