@@ -1,14 +1,14 @@
 <header class='page-header'>
   <div class="header-left">
-    <h1 class="logo">何たベル？</h1>
+    <%= link_to "何たベル？", root_path, class: "link logo" %>
   </div>
   <div class="header-right">
     <% if user_signed_in? %>
-      <%= link_to current_user.name, "#", class: "link user-name" %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "link logout" %>
+      <%= link_to current_user.name, "#", class: "link header-link user-name" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "link header-link logout" %>
     <% else %>
-      <%= link_to 'ログイン', new_user_session_path, class: "link login" %>
-      <%= link_to '新規登録', new_user_registration_path, class: "link sign-up" %>
+      <%= link_to 'ログイン', new_user_session_path, class: "link header-link login" %>
+      <%= link_to '新規登録', new_user_registration_path, class: "link header-link sign-up" %>
     <% end %>
   </div>
 </header>
