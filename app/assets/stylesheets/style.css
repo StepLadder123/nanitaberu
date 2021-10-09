@@ -38,11 +38,32 @@
 
 /* 共通 */
 .page {
-  padding: 10vh 0 0;
+  padding: 10vh 10vw 0;
+  width: 80vw;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.link:hover {
+.page-title {
+  text-align: center;
+  font-size: 20px;
+  padding: 3vh 0;
+}
+
+.link:hover, 
+.btn:hover {
   opacity: 0.75;
+}
+
+.btn-content {
+  padding: 2vh 0;
+  text-align: center;
 }
 /* /共通 */
 
+/* ルーム検索 */
+.create-room-form {
+  padding: 2vh 20vw;
+  min-width: 500px;
+}
+/* /ルーム検索 */
