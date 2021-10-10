@@ -32,6 +32,9 @@
   background: beige;
   line-height: 5vh;
   text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 /* /ヘッダー、フッター */
@@ -81,7 +84,8 @@
 /* /共通 */
 
 /* ルーム検索 */
-.create-room-form {
+.create-room-form, 
+.create-menu-form {
   padding: 2vh 20vw;
   min-width: 500px;
 }
