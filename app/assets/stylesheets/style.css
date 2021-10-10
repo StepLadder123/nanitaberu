@@ -63,6 +63,21 @@
 .hidden {
   display: none;
 }
+
+.explanation {
+  padding: 2vh 0;
+  text-align: center;
+}
+
+.indispensable {
+  background: #ea352d;
+  margin-left: 2px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
 /* /共通 */
 
 /* ルーム検索 */
