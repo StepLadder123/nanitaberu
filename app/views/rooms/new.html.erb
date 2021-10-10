@@ -1,12 +1,10 @@
-<div class="room-new-page">
+<div class="page room-new-page">
   <div class="page-title">
     <h1 class="title-text">ルーム新規作成</h1>
   </div>
-  <div class="explanation-link">
-    作成済みルームに参加する場合は<%= link_to 'こちら', search_rooms_path %>
-  </div>
   <div class="create-room">
-    <span class="explanation">新しくルームを作成する場合は、下記を入力して作成ボタンをクリック。</span>
+    <span class="explanation">「何たベル？」を使用するには、ルームに所属する必要があります。<br>
+    作成済みルームに参加する場合は<%= link_to 'こちら', search_rooms_path, class: "link" %>をクリックしてください。新しくルームを作成する場合は、下記を入力して作成ボタンをクリックします。招待用ルームコードは簡単に特定できない文字を使用しましょう。ルーム作成後は検索用ルームコードをルーム参加者にご連携ください。</span>
     <%= form_with model: @room, local: true do |f| %>
       <div class="create-room-form">
         <div class="create-room-form-left">
