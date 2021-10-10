@@ -59,11 +59,23 @@
   padding: 2vh 0;
   text-align: center;
 }
+
+.hidden {
+  display: none;
+}
 /* /共通 */
 
 /* ルーム検索 */
 .create-room-form {
   padding: 2vh 20vw;
   min-width: 500px;
+}
+
+.detail-table {
+  margin: 0 auto;
+}
+
+.detail-item {
+  width: 120px;
 }
 /* /ルーム検索 */
