@@ -1,6 +1,9 @@
-<div class="room-wait-page">
+<div class="page room-wait-page">
+  <div class="page-title">
+    <h1 class="title-text">ルーム入室承認待ち</h2>
+  </div>
   <% @room.each do |room| %>
-    <div>
+    <div class="explanation">
       <%= "ただいま#{room.room_name}のルームに入室申請中です。" %>
     </div>
   <% end %>
