@@ -86,7 +86,8 @@
 /* ルーム検索 */
 .create-room-form, 
 .create-menu-form, 
-.create-member-form {
+.create-member-form, 
+.log-in-form {
   padding: 2vh 20vw;
   min-width: 500px;
 }
