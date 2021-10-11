@@ -158,3 +158,13 @@
   font-size: 6px;
 }
 /* /トップ */
+
+/* メニュー */
+.show-menu {
+  text-align: center;
+}
+
+.show-menu-img {
+  width: 200px;
+}
+/* /メニュー */
