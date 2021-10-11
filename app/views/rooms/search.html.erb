@@ -1,12 +1,10 @@
-<div class="room-search-page">
+<div class="page room-search-page">
   <div class="page-title">
     <h1 class="title-text">ルーム検索</h2>
   </div>
-  <div class="explanation-link">
-    新規ルームを作成する場合は<%= link_to 'こちら', new_room_path %>
-  </div>
   <div class="search-room">
-    <span class="explanation">作成済みルームに参加する場合は、ルームオーナーに確認した検索用ルームコードを入力し、検索ボタンをクリック。</span>
+    <span class="explanation">「何たベル？」を使用するには、ルームに所属する必要があります。<br>
+    あなたが新規ルームを作成する場合は<%= link_to 'こちら', new_room_path, class: "link" %>をクリックしてください。作成済みルームに参加する場合は、ルームオーナーに検索用ルームコードを確認して、下部に入力してルームを検索してください。</span>
     <%= search_form_for @r, url: join_rooms_path do |f| %>
       <div class="create-room-form">
         <div class="create-room-form-left">
@@ -17,7 +15,7 @@
         </div>
       </div>
       <div class='transition-btn'>
-        <div class="btn-content">
+        <div class="btn btn-content">
           <%= f.submit "検索", class:"next-btn" %>
         </div>
       </div>

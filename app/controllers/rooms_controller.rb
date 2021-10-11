@@ -35,6 +35,7 @@ class RoomsController < ApplicationController
     @applies = User.where(waiting_room_key: @room.id)
     @schedule = Schedule.new
     @schedules = Schedule.where(room_id: @room.id)
+    @schedules_today = Schedule.where(room_id: @room.id).where(date: Date.today)
   end
 
   def search

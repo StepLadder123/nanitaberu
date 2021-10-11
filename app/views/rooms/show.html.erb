@@ -1,52 +1,93 @@
-<div class="top-page">
+<div class="page top-page">
   <div class="page-title">
     <h1 class="title-text"><%= "#{@room.room_name}のルーム" %></h1>
   </div>
 
+  <table class="show-table">
+    <tbody>
+      <tr>
+        <th class="show-table-item">オーナー名</th>
+        <td class="show-table-value"><%= @room.user.name %></td>
+      </tr>
+      <tr>
+        <th class="show-table-item">ルーム開設日</th>
+        <td class="show-table-value"><%= @room.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+    </tbody>
+  </table>
   <div class="contents">
     ログインしている状態でルーム参加済みのトップページです。<br>
-    今週の献立、夕食有無の連絡機能を作成する予定です。<br>
-    <%= link_to 'メニューを登録する', new_room_menu_path(@room.id), class:"menu-new-btn" %>
-    <% if @room.user_id == current_user.id %>
-      オーナーのため、承認機能を付与します。<br>
-      <% @applies.each do |apply_user| %>
-        <%= apply_user.name %>
-        <%= link_to '承認する', approve_rooms_path(apply_user.id), class:"approve-btn" %>
-        <%= link_to '承認しない', reject_rooms_path(apply_user.id), class:"reject-btn" %>
-        <br>
-      <% end %>
-    <% end %>
-    <%= form_with model: [@room, @schedule], url: room_schedules_path(:id), id: 'new_score', class: 'new_score', local: true do |f| %>
-      <div>
-        <div>
-          <%= f.label :日付, class: "create-menu-form-label" %>
-          <span class="indispensable">必須</span>
+    メニューの登録、献立の確認、予定登録をすることができます。<br>
+    <div class="tab-panel-area">
+      <ul class="tab-group">
+        <li class="tab tab-A is-active">今日の献立</li>
+        <li class="tab tab-B">献立予定登録</li>
+        <% if @room.user_id == current_user.id %>
+          <li class="tab tab-C">入室承認</li>
+        <% end %>
+      </ul>
+      <div class="panel-group">
+        <div class="panel panel-A is-show">
+          <% @schedules_today.each do |schedule| %>
+            <div>
+              <%= image_tag Menu.find(schedule.menu_id).image, class: "index-menu-img" %>
+              <%= Menu.find(schedule.menu_id).cook_name %>
+            </div>
+          <% end %>
         </div>
-        <div>
-          <%= f.date_field :date, class:"input-default", id:"date", max: Time.now, value: Time.now.strftime("%Y-%m-%d") %>
+        <div class="panel panel-B">
+          <%= form_with model: [@room, @schedule], url: room_schedules_path(:id), id: 'new_score', class: 'new_score', local: true do |f| %>
+            <div>
+              <div>
+                <%= f.label :日付, class: "create-menu-form-label" %>
+                <span class="indispensable">必須</span>
+              </div>
+              <div>
+                <%= f.date_field :date, class:"input-default", id:"date", value: Time.now.strftime("%Y-%m-%d") %>
+              </div>
+            </div>
+            <div>
+              <div>
+                <%= f.label :メニュー, class: "create-menu-form-label" %>
+                <span class="indispensable">必須</span>
+              </div>
+              <div>
+                <%= f.collection_select(:menu_id, Menu.where(room_id: @room.id).order(cook_name: "ASC"), :id, :cook_name, {prompt: "選択してください"}, {class:"select-box", id:"menu"}) %>
+              </div>
+              <div>
+                <%= link_to 'メニューを新規登録する', new_room_menu_path(@room.id), class:"link menu-new-btn" %>
+              </div>
+            </div>
+            <div class='transition-btn'>
+              <div class="btn-content">
+                <%= f.submit "献立登録する" ,class:"next-btn" %><br>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="panel panel-C">
+          <% if @room.user_id == current_user.id %>
+            オーナーのため、承認機能を付与します。<br>
+            <% if @applies.present? %>
+              <% @applies.each do |apply_user| %>
+                <%= apply_user.name %>
+                <%= link_to '承認する', approve_rooms_path(apply_user.id), class:"link approve-btn" %>
+                <%= link_to '承認しない', reject_rooms_path(apply_user.id), class:"link reject-btn" %>
+                <br>
+              <% end %>
+            <% else %>
+              承認待ちのメンバーはいません。
+            <% end %>
+          <% end %>
         </div>
       </div>
-      <div>
-        <div>
-          <%= f.label :メニュー, class: "create-menu-form-label" %>
-          <span class="indispensable">必須</span>
-        </div>
-        <div>
-          <%= f.collection_select(:menu_id, Menu.where(room_id: @room.id).order(cook_name: "ASC"), :id, :cook_name, {prompt: "選択してください"}, {class:"select-box", id:"menu"}) %>
-        </div>
-      </div>
-      <div class='transition-btn'>
-        <div class="btn-content">
-          <%= f.submit "献立登録する" ,class:"next-btn" %><br>
-        </div>
-      </div>
-    <% end %>
+    </div>
     <%= calendar events: @schedules do |date, schedules| %>
       <%= date.day %>
       <% schedules.each do |schedule| %>
         <div>
-          <%= link_to Menu.find(schedule.menu_id).cook_name, room_menu_path(schedule.menu_id) %>
-          <%= link_to "[削除]", room_schedule_path(schedule.id), method: :delete %>
+          <%= link_to Menu.find(schedule.menu_id).cook_name, room_menu_path(schedule.menu_id), class: "link menu-name" %>
+          <%= link_to "[削除]", room_schedule_path(schedule.id), method: :delete, class: "link delete-link" %>
         </div>
       <% end %>
     <% end %>
