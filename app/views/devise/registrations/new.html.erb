@@ -1,37 +1,39 @@
-<div class="sign-up">
+<div class="page sign-up">
   <div class="page-title">
     <h1 class="title-text">会員登録</h1>
   </div>
 
   <div class="contents">
     <%= form_with model: @user, url: user_registration_path, id: 'new-user', class: 'new-user', local: true do |f| %>
-      <div class="form-area">
-        <div class="form-group form-group-owner">
-          <label class="form-text">ユーザー名</label>
-          <span class="indispensable">必須</span>
+      <div class="contents create-member-form">
+        <div class="form-area">
+          <div class="form-group form-group-owner">
+            <label class="form-text">ユーザー名</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :name, class:"input-area input-area-owner", id:"name", placeholder:"例) ママ、パパ" %>
         </div>
-        <%= f.text_field :name, class:"input-area input-area-owner", id:"name", placeholder:"例) ママ、パパ" %>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-email">
-          <label class="form-text">メールアドレス</label>
-          <span class="indispensable">必須</span>
+        <div class="form-area">
+          <div class="form-group form-group-email">
+            <label class="form-text">メールアドレス</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.email_field :email, class:"input-area input-area-email", id:"email", placeholder:"PC・携帯どちらでも可" %>
         </div>
-        <%= f.email_field :email, class:"input-area input-area-email", id:"email", placeholder:"PC・携帯どちらでも可" %>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-password">
-          <label class="form-text">パスワード</label>
-          <span class="indispensable">必須</span>
+        <div class="form-area">
+          <div class="form-group form-group-password">
+            <label class="form-text">パスワード</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.password_field :password, class:"input-area input-area-password", id:"password", placeholder:"6文字以上の半角英数字" %>
         </div>
-        <%= f.password_field :password, class:"input-area input-area-password", id:"password", placeholder:"6文字以上の半角英数字" %>
-      </div>
-      <div class="form-area">
-        <div class="form-group form-group-password">
-          <label class="form-text">パスワード</label>
-          <span class="indispensable">必須</span>
+        <div class="form-area">
+          <div class="form-group form-group-password">
+            <label class="form-text">パスワード</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.password_field :password_confirmation, class:"input-area input-area-password", id:"password-confirmation", placeholder:"同じパスワードを入力してください" %>
         </div>
-        <%= f.password_field :password_confirmation, class:"input-area input-area-password", id:"password-confirmation", placeholder:"同じパスワードを入力してください" %>
       </div>
       <div class='transition-btn'>
         <div class="btn-content">
