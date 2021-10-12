@@ -14,6 +14,7 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:room_id])
+    @schedule = Schedule.where(menu_id: @menu.id)
   end
 
   private
