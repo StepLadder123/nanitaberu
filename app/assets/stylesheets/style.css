@@ -103,6 +103,29 @@
 /* /ルーム検索 */
 
 /* トップ */
+.top-page > .contents {
+  display: flex;
+  flex-flow: column;
+}
+
+.content1, 
+.content2, 
+.content3 {
+  display: flex;
+  justify-content: space-around;
+  margin: 3vh 0;
+}
+
+.log-out-img {
+  height: 150px;
+}
+
+.index-sentense1, 
+.index-sentense2, 
+.index-sentense3 {
+  line-height: 75px;
+}
+
 .show-table {
   margin-left: auto;
 }
