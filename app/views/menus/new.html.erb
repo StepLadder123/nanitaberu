@@ -4,6 +4,7 @@
   </div>
   <div class="create-menu">
     <%= form_with model: [@room, @menu], url: room_menus_path, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
       <div class="create-menu-form">
         <div class="create-menu-form-left">
           <%= f.label :料理画像, class: "create-menu-form-label" %>

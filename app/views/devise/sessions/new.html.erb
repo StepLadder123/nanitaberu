@@ -5,6 +5,7 @@
 
   <div class="contents">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
       <div class="log-in-form">
         <div class="form-area">
           <div class="form-text">

@@ -37,6 +37,7 @@
         </div>
         <div class="panel panel-B">
           <%= form_with model: [@room, @schedule], url: room_schedules_path(:id), id: 'new_score', class: 'new_score', local: true do |f| %>
+          <%= render 'shared/error_messages', model: f.object %>
             <div>
               <div>
                 <%= f.label :日付, class: "create-menu-form-label" %>
