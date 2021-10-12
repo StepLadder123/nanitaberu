@@ -192,4 +192,24 @@
 .show-menu-img {
   width: 200px;
 }
+
+.menu-show-table {
+  margin: 0 auto;
+}
+
+.detail-item {
+  width: 30%;
+  background-color: beige;
+  border: 1px solid #dedede;
+  padding: 0 2vw;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 70%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
 /* /メニュー */
