@@ -6,12 +6,30 @@
     <div>
       <%= image_tag @menu.image, class:"show-menu-img" %>
     </div>
-    <div>
-      <%= @menu.cook_name %>
-    </div>
-    <div>
-      <%= @menu.memo %>
-    </div>
+    <table class="menu-show-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">料理名</th>
+          <td class="detail-value"><%= @menu.cook_name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">メモ</th>
+          <td class="detail-value"><%= @menu.memo %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">直近の献立日</th>
+          <td class="detail-value">
+            <% @schedule.order(date: :desc).each do |schedule| %>
+              <%= schedule.date %><br>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th class="detail-item">献立登場回数</th>
+          <td class="detail-value"><%= @schedule.count %></td>
+        </tr>
+      </tbody>
+    </table>
     <div class='transition-btn'>
       <div class="btn-content">
         <%= link_to 'ルームにもどる', root_path, class:"back-btn" %>
