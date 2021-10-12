@@ -117,13 +117,14 @@
 }
 
 .log-out-img {
-  height: 150px;
+  height: 210px;
 }
 
 .index-sentense1, 
 .index-sentense2, 
 .index-sentense3 {
-  line-height: 75px;
+  display: flex;
+  align-items: center;
 }
 
 .show-table {
