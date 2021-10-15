@@ -8,7 +8,7 @@
 https://nanitaberu-stepladder123.herokuapp.com/
 
 # テスト用アカウント
-- ルーム1（鈴木家）
+- ルーム1（鈴木家／検索用ルームコード：suzu1234）
   - ユーザー1（鈴木家の母）
     - ID
     test1@test.co.jp
@@ -37,10 +37,10 @@ https://nanitaberu-stepladder123.herokuapp.com/
     a9b8c7
     - STS
     ルーム無所属
-- ルーム2（佐藤家）
+- ルーム2（佐藤家／検索用ルームコード：suzu1234）
   - ユーザー5（佐藤家の妻）
     - ID
-    test4@test.co.jp
+    test5@test.co.jp
     - Password
     a9b8c7
     - STS
@@ -113,7 +113,7 @@ https://nanitaberu-stepladder123.herokuapp.com/
 
     - 献立予定登録
 
-      献立日を入力し、メニューを選択。メニューは事前登録が必要で、「メニューを新規登録する」リンクをクリック
+      献立日を入力し、メニューを選択。メニューは事前登録が必要で、「メニューを新規登録する」リンクをクリック。他家族の献立予定やメニューは参照・選択できません。
 
       [![Image from Gyazo](https://i.gyazo.com/b1d702c45845be071b52a44725be8d25.jpg)](https://gyazo.com/b1d702c45845be071b52a44725be8d25)
 
