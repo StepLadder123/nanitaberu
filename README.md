@@ -37,7 +37,7 @@ https://nanitaberu-stepladder123.herokuapp.com/
     a9b8c7
     - STS
     ルーム無所属
-- ルーム2（佐藤家／検索用ルームコード：suzu1234）
+- ルーム2（佐藤家／検索用ルームコード：sato1234）
   - ユーザー5（佐藤家の妻）
     - ID
     test5@test.co.jp
